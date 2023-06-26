@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/weatherFragment">
+
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="it.macgood.weatherapp.presentation.ui.weather.DetailsFragment"
+        android:label="Подробнее"
+        tools:layout="@layout/fragment_details" />
+    <fragment
+        android:id="@+id/weatherFragment"
+        android:name="it.macgood.weatherapp.presentation.ui.weather.WeatherFragment"
+        android:label="Погода на сегодня"
+        tools:layout="@layout/fragment_weather" >
+        <action
+            android:id="@+id/action_weatherFragment_to_forecastFragment"
+            app:destination="@id/forecastFragment" />
+        <action
+            android:id="@+id/action_weatherFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/forecastFragment"
+        android:name="it.macgood.weatherapp.presentation.ui.forecast.ForecastFragment"
+        android:label="Прогноз погоды на 5 дней"
+        tools:layout="@layout/fragment_forecast" />
+</navigation>
